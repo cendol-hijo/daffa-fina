@@ -176,3 +176,99 @@ p {
     40% { transform: translateY(-20px); }
     60% { transform: translateY(-10px); }
 }
+
+/* ====================================================
+   MOBILE RESPONSIVENESS (iPhone Mini, Compact Androids)
+   ==================================================== */
+
+/* Target standard mobile phones */
+@media (max-width: 600px) {
+    /* Adjust Hero Section */
+    .hero {
+        padding: 0 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem; /* Scaled down from 4rem */
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Adjust Content Boxes */
+    .month-section {
+        padding: 2rem 1rem; /* Less padding on the sides */
+        min-height: auto; /* Let the content dictate height instead of forcing 100vh */
+        padding-top: 4rem; 
+        padding-bottom: 4rem;
+    }
+    
+    .content {
+        padding: 1.5rem; /* Thinner inside padding */
+        border-radius: 15px;
+    }
+
+    /* Adjust Typography */
+    h2 {
+        font-size: 1.8rem; /* Scaled down from 2.5rem */
+        margin-bottom: 1rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+
+    /* Fix Image Sizing for Small Screens */
+    .image-placeholder {
+        height: 200px; /* Smaller placeholder */
+        margin-bottom: 1rem;
+    }
+
+    /* Tame the animations to prevent horizontal scrolling/stretching on small screens */
+    [data-animation="slide-left"] .content { transform: translateX(50px); }
+    [data-animation="slide-right"] .content { transform: translateX(-50px); }
+    [data-animation="fade-up"] .content { transform: translateY(50px); }
+    [data-animation="fade-down"] .content { transform: translateY(-50px); }
+    [data-animation="scale-up"] .content { transform: scale(0.5) translateY(50px); }
+    
+    @keyframes customBounce {
+        0% { opacity: 0; transform: translateY(-100px); }
+        60% { opacity: 1; transform: translateY(15px); }
+        80% { transform: translateY(-5px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+}
+
+/* Extra optimization specifically for iPhone Mini / small Android displays (~360px - 375px) */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .content {
+        padding: 1.25rem;
+    }
+    
+    .image-placeholder {
+        height: 180px;
+    }
+}
+
+/* ====================================================
+   IMAGE HANDLING (For when you add real photos)
+   ==================================================== */
+/* Add this rule so that when you replace the placeholders with actual <img> tags, they stay perfectly inside their boxes without stretching */
+.content img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover; /* Keeps images from looking squished */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
